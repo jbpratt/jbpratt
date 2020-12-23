@@ -1,0 +1,24 @@
+name: Image Update
+
+on:
+  schedule:
+    - cron: 0 0 * * *
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: |
+      sed -i -E "s|imgs\/([^\.]+).jpg|$(find imgs/ -type f | shuf -n 1)|g" README.md 
+    - name: Commit changes
+      run: |
+        if ! git diff-index --quiet HEAD --
+        then
+          git commit -am "selected random image"
+          git push
+        else
+          echo "No changes to commit"
+        fi
+        exit 0
