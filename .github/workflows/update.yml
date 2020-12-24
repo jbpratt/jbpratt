@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install dependencies
+    - name: replace image
       run: |
         sed -i -E "s|imgs\/([^\.]+).jpg|$(find imgs/ -type f | shuf -n 1)|g" README.md 
     - name: Commit changes
