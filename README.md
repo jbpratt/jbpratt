@@ -1,1 +1,1 @@
-![Cat](imgs/AUTUMN_TOEBEANS.jpg "A cute cat")
+![Cat](imgs/MISTER_RIP.jpg "A cute cat")
